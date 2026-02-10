@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CogniTrack | AI Cognitive Stress Tracker</title>
+
+  <!-- React + Babel -->
+  <script src="https://resource.trickle.so/vendor_lib/unpkg/react@18/umd/react.production.min.js"></script>
+  <script src="https://resource.trickle.so/vendor_lib/unpkg/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://resource.trickle.so/vendor_lib/unpkg/@babel/standalone/babel.min.js"></script>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons -->
+  <link
+    href="https://resource.trickle.so/vendor_lib/unpkg/lucide-static@0.516.0/font/lucide.css"
+    rel="stylesheet"
+  />
+
+  <!-- Charts & MediaPipe -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+  <script>
+    window.ChartJS = window.Chart;
+  </script>
+
+  <!-- ✅ DARK UI THEME (STABLE) -->
+  <style type="text/tailwindcss">
+    @layer base {
+      html, body {
+        height: 100%;
+        background-color: #0f172a;
+      }
+
+      body {
+        @apply text-white antialiased;
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+      }
+    }
+
+    @layer components {
+      .glass-panel {
+        @apply bg-[rgba(17,25,40,0.78)]
+               border border-white/10
+               shadow-xl
+               rounded-xl;
+      }
+
+      .glass-input {
+        @apply bg-black/30
+               border border-white/10
+               text-white
+               placeholder-gray-400
+               focus:border-cyan-400
+               focus:ring-1
+               focus:ring-cyan-400
+               transition;
+      }
+
+      .btn-glow {
+        @apply relative overflow-hidden transition-all duration-300;
+      }
+
+      .btn-glow:hover {
+        box-shadow: 0 0 20px rgba(139,92,246,0.5);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <!-- ========= CORE LOGIC ========= -->
+  <script src="./logic/session.js"></script>
+  <script src="./logic/stress.js"></script>
+  <script src="./logic/ai.js"></script>
+  <script src="./logic/chart.js"></script>
+  <script src="./logic/tracker.js"></script>
+
+  <!-- ========= UTILS ========= -->
+  <script type="text/babel" src="utils/aiService.js"></script>
+
+  <!-- ========= COMPONENTS ========= -->
+  <script type="text/babel" src="components/Header.js"></script>
+  <script type="text/babel" src="components/Sidebar.js"></script>
+  <script type="text/babel" src="components/EyeWidget.js"></script>
+  <script type="text/babel" src="components/ScreenWidget.js"></script>
+  <script type="text/babel" src="components/StressAnalysis.js"></script>
+  <script type="text/babel" src="components/BlinkStressChart.js"></script>
+  <script type="text/babel" src="components/projectPage.js"></script>
+
+  <!-- ========= APP (LAST) ========= -->
+  <script type="text/babel" src="app.js"></script>
+</body>
+</html>
